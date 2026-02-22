@@ -30,13 +30,18 @@
             --light-cream: #FAF8F5;
         }
         
-        body {
+        body{
             font-family: 'Poppins', sans-serif;
             color: var(--dark-brown);
             background-color: var(--light-cream);
-            padding-top: 80px; /* FIX: agar hero tidak ketutup navbar fixed */
-        }
-        @media (max-width: 768px) { body { padding-top: 70px; } }
+            padding-top: 0 !important;
+          }
+          section[id]{
+            scroll-margin-top: 90px;
+          }
+          @media (max-width:768px){
+            section[id]{ scroll-margin-top: 80px; }
+          }
         
         h1, h2, h3, h4 { font-family: 'Lora', serif; }
         
@@ -98,6 +103,13 @@
             justify-content: center;
             text-align: center;
             color: white;
+          }
+          @media (max-width:768px){
+            .hero-section{ padding-top: 90px; } /* karena navbar + notch iPhone */
+          }
+
+          @media (max-width:768px){
+            .navbar .container{ padding-top: 10px; padding-bottom: 10px; }
           }
         
           .hero-video {
