@@ -20,11 +20,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
             --primary-brown: #8B6F47;
@@ -38,54 +34,60 @@
             font-family: 'Poppins', sans-serif;
             color: var(--dark-brown);
             background-color: var(--light-cream);
+            padding-top: 80px; /* FIX: agar hero tidak ketutup navbar fixed */
         }
+        @media (max-width: 768px) { body { padding-top: 70px; } }
         
-        h1, h2, h3, h4 {
-            font-family: 'Lora', serif;
-        }
+        h1, h2, h3, h4 { font-family: 'Lora', serif; }
         
         .navbar {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(139, 111, 71, 0.1);
         }
         
         .navbar.scrolled {
             padding: 0.5rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.15);
+            background-color: rgba(250, 248, 245, 0.97);
         }
         
+        /* Elegant Navigation Links */
         .nav-link {
             color: var(--dark-brown);
             font-weight: 500;
-            transition: color 0.3s ease;
             position: relative;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary-brown);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
             bottom: -5px;
             left: 50%;
-            background-color: var(--primary-brown);
-            transition: all 0.3s ease;
             transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-brown);
+            transition: width 0.3s ease;
+            border-radius: 2px;
         }
         
-        .nav-link:hover::after {
-            width: 100%;
+        .nav-link:hover { color: var(--primary-brown); }
+        .nav-link:hover::after { width: 60%; }
+        
+        .nav-link.active {
+            color: var(--primary-brown);
+            font-weight: 600;
         }
+        .nav-link.active::after { width: 60%; }
         
         .hero-section {
             height: 100vh;
@@ -168,13 +170,8 @@
             transition: transform 0.5s ease;
         }
         
-        .product-card:hover img {
-            transform: scale(1.1);
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-        }
+        .product-card:hover img { transform: scale(1.1); }
+        .product-info { padding: 1.5rem; }
         
         .product-category {
             color: var(--primary-brown);
@@ -212,9 +209,7 @@
             transition: transform 0.5s ease;
         }
         
-        .portfolio-item:hover img {
-            transform: scale(1.2);
-        }
+        .portfolio-item:hover img { transform: scale(1.2); }
         
         .portfolio-overlay {
             position: absolute;
@@ -231,9 +226,7 @@
             transition: opacity 0.3s ease;
         }
         
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
         
         .modal {
             display: none;
@@ -265,9 +258,7 @@
             transition: color 0.3s;
         }
         
-        .close:hover {
-            color: var(--primary-brown);
-        }
+        .close:hover { color: var(--primary-brown); }
         
         .contact-form input,
         .contact-form textarea {
@@ -324,40 +315,20 @@
             transition: color 0.3s ease;
         }
         
-        .social-links a:hover {
-            color: var(--primary-brown);
-        }
+        .social-links a:hover { color: var(--primary-brown); }
         
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.75rem;
-            }
-            
-            .navbar {
-                padding: 0.5rem 0;
-            }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .section-title { font-size: 1.75rem; }
+            .navbar { padding: 0.5rem 0; }
         }
         
-        .mobile-menu {
-            display: none;
-        }
+        .mobile-menu { display: none; }
         
         @media (max-width: 768px) {
-            .desktop-menu {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
+            .desktop-menu { display: none; }
+            .mobile-menu { display: block; }
             
             .mobile-nav {
                 display: none;
@@ -369,9 +340,7 @@
                 box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             }
             
-            .mobile-nav.active {
-                display: block;
-            }
+            .mobile-nav.active { display: block; }
             
             .mobile-nav a {
                 display: block;
@@ -379,80 +348,19 @@
                 border-bottom: 1px solid #f0f0f0;
             }
         }
-/* Elegant Navigation Links */
-.nav-link {
-    color: var(--dark-brown);
-    font-weight: 500;
-    position: relative;
-    padding: 0.5rem 0;
-    transition: all 0.3s ease;
-  }
-  
-  /* Underline animation */
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-brown);
-    transition: width 0.3s ease;
-    border-radius: 2px;
-  }
-  
-  .nav-link:hover {
-    color: var(--primary-brown);
-  }
-  
-  .nav-link:hover::after {
-    width: 60%;
-  }
-  
-  /* Highlight for active menu */
-  .nav-link.active {
-    color: var(--primary-brown);
-    font-weight: 600;
-  }
-  
-  .nav-link.active::after {
-    width: 60%;
-  }
-  
-  /* Navbar background styling */
-  .navbar {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(139, 111, 71, 0.1);
-  }
-  
-  .navbar.scrolled {
-    box-shadow: 0 4px 25px rgba(0,0,0,0.15);
-    background-color: rgba(250, 248, 245, 0.97);
-  }
-  
-  body { padding-top: 80px; }
-  @media (max-width: 768px) {
-    body { padding-top: 70px; }
-  }
     </style>
-    
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- LOGO -->
             <a href="#home" class="flex items-center gap-3">
-                <img src="Logo light brown.PNG" alt="Maulana Furniture Indonesia" class="h-10 w-auto">
-              </a>
-            </div>
+                <img src="logo-light-brown.png" alt="Maulana Furniture Indonesia" class="h-10 w-auto">
+            </a>
+
+            <!-- DESKTOP MENU -->
             <div class="desktop-menu flex space-x-8">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About Us</a>
@@ -460,12 +368,16 @@
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
+
+            <!-- MOBILE MENU BUTTON -->
             <div class="mobile-menu">
                 <button id="menuBtn" class="text-2xl" style="color: var(--primary-brown);">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
+
+        <!-- MOBILE NAV -->
         <div class="mobile-nav" id="mobileNav">
             <a href="#home" class="nav-link">Home</a>
             <a href="#about" class="nav-link">About Us</a>
@@ -594,25 +506,23 @@
     </section>
 
     <!-- Portfolio Section -->
-<section id="portfolio" class="py-20 px-4" style="background-color: var(--light-cream);">
-    <div class="container mx-auto max-w-6xl text-center">
-      <h2 class="section-title" data-aos="fade-up">Our Portfolio</h2>
-  
-      <div class="grid md:grid-cols-3 gap-8 justify-center mt-10">
-        <!-- Shortcut to open PDF modal -->
-        <div class="portfolio-item" onclick="openModal('pdfModal')" data-aos="zoom-in" style="cursor:pointer;">
-          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="Company Profile PDF" class="mx-auto" style="width:150px;">
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-bold">Company Profile</h3>
-          </div>
+    <section id="portfolio" class="py-20 px-4" style="background-color: var(--light-cream);">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="section-title" data-aos="fade-up">Our Portfolio</h2>
+
+            <div class="grid md:grid-cols-3 gap-8 justify-center mt-10">
+                <div class="portfolio-item" onclick="openModal('pdfModal')" data-aos="zoom-in" style="cursor:pointer;">
+                    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="Company Profile PDF" class="mx-auto" style="width:150px;">
+                    <div class="portfolio-overlay">
+                        <h3 class="text-xl font-bold">Company Profile</h3>
+                    </div>
+                </div>
+            </div>
+
+            <p class="mt-8 text-lg text-gray-600">Click the icon above to view our full company profile.</p>
         </div>
-      </div>
-  
-      <p class="mt-8 text-lg text-gray-600">Click the icon above to view our full company profile.</p>
-    </div>
-  </section>
-  
-    
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4" style="background-color: var(--cream);">
         <div class="container mx-auto max-w-6xl">
@@ -631,8 +541,6 @@
                     </form>
                     <div id="formMessage" class="mt-4 text-center font-semibold"></div>
                 </div>
-                
-                
                 
                 <!-- Contact Info -->
                 <div data-aos="fade-left">
@@ -670,7 +578,6 @@
                         </div>
                     </div>
                     
-                    <!-- Google Maps -->
                     <div class="rounded-2xl overflow-hidden shadow-xl">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.369!2d112.738!3d-7.257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjUuMiJTIDExMsKwNDQnMTYuOCJF!5e0!3m2!1sen!2sid!4v1234567890" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
@@ -718,175 +625,28 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Modals for Portfolio -->
-    <div id="modal1" class="modal">
-        <div class="modal-content" data-aos="zoom-in">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h2 class="text-3xl font-bold mb-4">Modern Living Room</h2>
-            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="Living Room" class="w-full rounded-xl mb-4">
-            <p class="text-lg mb-4">A complete modern living room furniture set featuring a luxury sofa, coffee table, and entertainment unit. Designed for comfort and contemporary style.</p>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <strong>Client:</strong> Mr. & Mrs. Anderson
-                </div>
-                <div>
-                    <strong>Location:</strong> Surabaya
-                </div>
-                <div>
-                    <strong>Year:</strong> 2024
-                </div>
-                <div>
-                    <strong>Budget:</strong> $8,500
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal2" class="modal">
-        <div class="modal-content" data-aos="zoom-in">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h2 class="text-3xl font-bold mb-4">Master Bedroom Suite</h2>
-            <img src="https://images.unsplash.com/photo-1556912167-f556f1f39faa?w=800" alt="Bedroom" class="w-full rounded-xl mb-4">
-            <p class="text-lg mb-4">An elegant master bedroom collection including king-size bed, wardrobes, nightstands, and dressing table crafted from premium mahogany wood.</p>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <strong>Client:</strong> Dr. Rahman Family
-                </div>
-                <div>
-                    <strong>Location:</strong> Jakarta
-                </div>
-                <div>
-                    <strong>Year:</strong> 2024
-                </div>
-                <div>
-                    <strong>Budget:</strong> $12,000
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal3" class="modal">
-        <div class="modal-content" data-aos="zoom-in">
-            <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <h2 class="text-3xl font-bold mb-4">Dining Room Set</h2>
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800" alt="Dining Room" class="w-full rounded-xl mb-4">
-            <p class="text-lg mb-4">Classic dining room furniture featuring an 8-seater dining table, matching chairs, and display cabinet perfect for family gatherings.</p>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <strong>Client:</strong> Wijaya Family
-                </div>
-                <div>
-                    <strong>Location:</strong> Bandung
-                </div>
-                <div>
-                    <strong>Year:</strong> 2023
-                </div>
-                <div>
-                    <strong>Budget:</strong> $6,800
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal4" class="modal">
-        <div class="modal-content" data-aos="zoom-in">
-            <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <h2 class="text-3xl font-bold mb-4">Home Office</h2>
-            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800" alt="Office" class="w-full rounded-xl mb-4">
-            <p class="text-lg mb-4">Professional home office setup with executive desk, ergonomic chair, bookshelves, and storage solutions for productive work environment.</p>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <strong>Client:</strong> Tech Startup Office
-                </div>
-                <div>
-                    <strong>Location:</strong> Surabaya
-                </div>
-                <div>
-                    <strong>Year:</strong> 2024
-                </div>
-                <div>
-                    <strong>Budget:</strong> $5,500
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal5" class="modal">
-        <div class="modal-content" data-aos="zoom-in">
-            <span class="close" onclick="closeModal('modal5')">&times;</span>
-            <h2 class="text-3xl font-bold mb-4">Custom Storage Solutions</h2>
-            <img src="https://images.unsplash.com/photo-1560448205-17d3a46c84de?w=800" alt="Cabinet" class="w-full rounded-xl mb-4">
-            <p class="text-lg mb-4">Tailored storage cabinets and wardrobes designed to maximize space efficiency while maintaining aesthetic appeal.</p>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <strong>Client:</strong> Santoso Residence
-                </div>
-                <div>
-                    <strong>Location:</strong> Yogyakarta
-                </div>
-                <div>
-                    <strong>Year:</strong> 2023
-                </div>
-                <div>
-                    <strong>Budget:</strong> $4,200
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal6" class="modal">
-        <div class="modal-content" data-aos="zoom-in">
-            <span class="close" onclick="closeModal('modal6')">&times;</span>
-            <h2 class="text-3xl font-bold mb-4">Outdoor Furniture</h2>
-            <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800" alt="Outdoor" class="w-full rounded-xl mb-4">
-            <p class="text-lg mb-4">Weather-resistant outdoor furniture collection including patio set, lounge chairs, and outdoor dining table for garden and terrace.</p>
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <strong>Client:</strong> Villa Bali Resort
-                </div>
-                <div>
-                    <strong>Location:</strong> Bali
-                </div>
-                <div>
-                    <strong>Year:</strong> 2024
-                </div>
-                <div>
-                    <strong>Budget:</strong> $9,200
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- PDF Modal -->
-<div id="pdfModal" class="modal">
-  <div class="modal-content" style="max-width: 90%; height: 90%;">
-    <span class="close" onclick="closeModal('pdfModal')">&times;</span>
-    <h2 class="text-2xl font-bold mb-4">Company Profile</h2>
-    <iframe src="COMPANY PROFILE MAULANA FURNITURE INDONESIA.pdf"
-            style="width:100%; height:80vh; border:none; border-radius:10px;"></iframe>
-  </div>
-</div>
-
+    <div id="pdfModal" class="modal">
+        <div class="modal-content" style="max-width: 90%; height: 90%;">
+            <span class="close" onclick="closeModal('pdfModal')">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Company Profile</h2>
+            <iframe src="COMPANY PROFILE MAULANA FURNITURE INDONESIA.pdf"
+                    style="width:100%; height:80vh; border:none; border-radius:10px;"></iframe>
+        </div>
+    </div>
 
     <!-- AOS Animation Script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
     <script>
         // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+        AOS.init({ duration: 1000, once: true, offset: 100 });
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
 
         // Smooth scrolling
@@ -895,12 +655,8 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    document.getElementById('mobileNav').classList.remove('active');
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('mobileNav')?.classList.remove('active');
                 }
             });
         });
@@ -913,16 +669,15 @@
         // Product filter functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const products = document.querySelectorAll('.product-card');
+        products.forEach(p => p.style.transition = 'opacity 0.3s ease, transform 0.3s ease');
 
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function() {
-                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
-                // Add active class to clicked button
                 this.classList.add('active');
-                
+
                 const category = this.getAttribute('data-category');
-                
+
                 products.forEach(product => {
                     if (category === 'all' || product.getAttribute('data-category') === category) {
                         product.style.display = 'block';
@@ -933,9 +688,7 @@
                     } else {
                         product.style.opacity = '0';
                         product.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            product.style.display = 'none';
-                        }, 300);
+                        setTimeout(() => { product.style.display = 'none'; }, 300);
                     }
                 });
             });
@@ -946,13 +699,10 @@
             document.getElementById(modalId).style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
-
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
             document.body.style.overflow = 'auto';
         }
-
-        // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = 'none';
@@ -960,105 +710,57 @@
             }
         }
 
-        
-            document.getElementById("contactForm").addEventListener("submit", function(e) {
-              e.preventDefault();
-              
-              const form = e.target;
-              const data = {
+        // Contact form submit (Google Script)
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const data = {
                 name: form.name.value,
                 email: form.email.value,
                 whatsapp: form.whatsapp.value,
                 subject: form.subject.value,
                 message: form.message.value
-              };
-            
-              // Ganti URL di bawah dengan link Web App kamu
-              const scriptURL = "https://script.google.com/macros/s/AKfycbxTzGBuG92sc6bz_4e39vQ66bXooaA71OYp4GMvHFwzeyJEm5-VI5Ag4AZxZ-CHZXY/exec";
-              
-              fetch(scriptURL, {
-                method: "POST",
-                body: JSON.stringify(data)
-              })
-              .then(response => {
+            };
+
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxTzGBuG92sc6bz_4e39vQ66bXooaA71OYp4GMvHFwzeyJEm5-VI5Ag4AZxZ-CHZXY/exec";
+
+            fetch(scriptURL, { method: "POST", body: JSON.stringify(data) })
+            .then(response => {
                 if (response.ok) {
-                  document.getElementById("formMessage").innerHTML = `
-                    <div style="color: var(--primary-brown); padding: 1rem; background-color: #e8f5e9; border-radius: 10px;">
-                      ✓ Thank you, ${data.name}! Your message has been sent successfully.
-                    </div>`;
-                  form.reset();
+                    document.getElementById("formMessage").innerHTML = `
+                        <div style="color: var(--primary-brown); padding: 1rem; background-color: #e8f5e9; border-radius: 10px;">
+                          ✓ Thank you, ${data.name}! Your message has been sent successfully.
+                        </div>`;
+                    form.reset();
                 } else {
-                  document.getElementById("formMessage").innerHTML = `<div style="color:red;">Error sending message. Please try again.</div>`;
+                    document.getElementById("formMessage").innerHTML = `<div style="color:red;">Error sending message. Please try again.</div>`;
                 }
-              })
-              .catch(error => {
+            })
+            .catch(error => {
                 console.error(error);
                 document.getElementById("formMessage").innerHTML = `<div style="color:red;">Error connecting to server.</div>`;
-              });
             });
-            
-            
-        // Contact form handling (simulated - in production use PHP)
-        //document.getElementById('contactForm').addEventListener('submit', function(e) {
-          //  e.preventDefault();
-            
-            //const formData = new FormData(this);
-            //const messageDiv = document.getElementById('formMessage');
-            
-            // Simulate form submission
-            ///messageDiv.innerHTML = '<div style="color: var(--primary-brown); padding: 1rem; background-color: #e8f5e9; border-radius: 10px;">✓ Thank you! Your message has been sent successfully. We will contact you soon.</div>';
-            
-            // Reset form
-            ///this.reset();
-            
-            // Clear message after 5 seconds
-            ///setTimeout(() => {
-               /// messageDiv.innerHTML = '';
-            ///}, 5000);
-            
-            /* 
-            In production, use this PHP code to handle the form:
-            
-            fetch('contact-handler.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.success) {
-                    messageDiv.innerHTML = '<div style="color: green;">Message sent successfully!</div>';
-                    this.reset();
-                } else {
-                    messageDiv.innerHTML = '<div style="color: red;">Error sending message. Please try again.</div>';
-                }
-            });
-            */
-        //});
-
-        // Add transition styles for product filtering
-        products.forEach(product => {
-            product.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         });
 
         // Highlight active navigation link while scrolling
-window.addEventListener("scroll", () => {
-    const sections = document.querySelectorAll("section[id]");
-    const scrollY = window.pageYOffset;
-  
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 80; // offset for navbar
-      const sectionId = current.getAttribute("id");
-      const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-      
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLink?.classList.add("active");
-      } else {
-        navLink?.classList.remove("active");
-      }
-    });
-  });
-  
+        window.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll("section[id]");
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 80;
+                const sectionId = current.getAttribute("id");
+                const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLink?.classList.add("active");
+                } else {
+                    navLink?.classList.remove("active");
+                }
+            });
+        });
     </script>
 </body>
 </html>
