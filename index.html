@@ -90,27 +90,32 @@
         .nav-link.active::after { width: 60%; }
         
         .hero-section {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1920') center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
             position: relative;
-        }
+            overflow: hidden;
+          }
         
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+          .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+          }
+
+          .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.35);
+            z-index: 1;
+          }
         
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
+          .hero-content {
+            position: relative;
+            z-index: 2;
+          }
         
         .btn-primary {
             background-color: var(--primary-brown);
@@ -434,12 +439,18 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
+        <video class="hero-video" autoplay muted loop playsinline poster="/Users/antoniustri/Documents/Maulana Furniture/IMG_6650.MOV">
+          <source src="hero.mp4" type="video/mp4">
+        </video>
+      
+        <div class="hero-overlay"></div>
+      
         <div class="hero-content" data-aos="fade-up">
-            <h1>Bringing Your Dream Home to Life</h1>
-            <p>with Classic & Modern Touch</p>
-            <a href="#catalog" class="btn-primary">View Products</a>
+          <h1>Bringing Your Dream Home to Life</h1>
+          <p>with Classic & Modern Touch</p>
+          <a href="#catalog" class="btn-primary">View Products</a>
         </div>
-    </section>
+      </section>
 
     <!-- About Us Section -->
     <section id="about" class="py-20 px-4">
@@ -447,7 +458,9 @@
             <h2 class="section-title" data-aos="fade-up">About Maulana Furniture</h2>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800" alt="Workshop" class="rounded-2xl shadow-2xl">
+                    <video autoplay muted loop playsinline class="/Users/antoniustri/Documents/Maulana Furniture/IMG_6651.MOV">
+                        <source src="about.mp4" type="video/mp4">
+                      </video>
                 </div>
                 <div data-aos="fade-left">
                     <p class="text-lg mb-6 leading-relaxed">
