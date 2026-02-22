@@ -438,15 +438,20 @@
     background-color: rgba(250, 248, 245, 0.97);
   }
   
-
+  body { padding-top: 80px; }
+  @media (max-width: 768px) {
+    body { padding-top: 70px; }
+  }
     </style>
+    
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold" style="color: var(--primary-brown);">
-                <i class="fas fa-couch mr-2"></i>Maulana Furniture
+            <a href="#home" class="flex items-center gap-3">
+                <img src="Logo light brown.PNG" alt="Maulana Furniture Indonesia" class="h-10 w-auto">
+              </a>
             </div>
             <div class="desktop-menu flex space-x-8">
                 <a href="#home" class="nav-link">Home</a>
