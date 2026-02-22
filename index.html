@@ -328,246 +328,55 @@
             color: var(--primary-brown);
         }
         
-        /* Desktop overrides for grid layouts */
-        @media (min-width: 769px) {
-            .about-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
             }
-            #catalog .grid.md\:grid-cols-3,
-            #portfolio .grid.md\:grid-cols-3 {
-                grid-template-columns: repeat(3, 1fr) !important;
+            
+            .hero-content p {
+                font-size: 1rem;
             }
-            #contact .grid.md\:grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr) !important;
+            
+            .section-title {
+                font-size: 1.75rem;
             }
-            footer .grid.md\:grid-cols-3 {
-                grid-template-columns: repeat(3, 1fr) !important;
+            
+            .navbar {
+                padding: 0.5rem 0;
             }
         }
-
-        /* === MOBILE MENU === */
+        
         .mobile-menu {
             display: none;
         }
-
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .mobile-nav.active {
-            display: block;
-        }
-
-        .mobile-nav a {
-            display: block;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid #f0f0f0;
-            color: var(--dark-brown);
-            font-weight: 500;
-        }
-
-        /* === RESPONSIVE BREAKPOINTS === */
+        
         @media (max-width: 768px) {
-
-            /* Navbar */
-            .navbar {
-                padding: 0.4rem 0;
-            }
-            .navbar > div.container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-                padding-top: 0.6rem;
-                padding-bottom: 0.6rem;
-            }
-            .navbar-logo img {
-                height: 38px;
-            }
             .desktop-menu {
                 display: none;
             }
+            
             .mobile-menu {
                 display: block;
             }
-
-            /* Hero */
-            .hero-section {
-                height: 100svh;
-                padding: 1rem;
-            }
-            .hero-content {
-                padding: 0 1rem;
-            }
-            .hero-content h1 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-                margin-bottom: 1rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-            .btn-primary {
-                padding: 0.8rem 1.8rem;
-                font-size: 0.9rem;
-            }
-
-            /* Section titles */
-            .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
-            }
-
-            /* About Section */
-            #about .grid {
-                grid-template-columns: 1fr !important;
-                gap: 2rem;
-            }
-            #about .grid img {
+            
+            .mobile-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                border-radius: 1rem;
+                background-color: white;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             }
-            #about .grid > div:first-child {
-                order: -1;
+            
+            .mobile-nav.active {
+                display: block;
             }
-            #about .grid-cols-3 {
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 0.75rem;
-            }
-            #about .text-4xl {
-                font-size: 1.8rem;
-            }
-            #about p.text-lg {
-                font-size: 0.95rem;
-            }
-
-            /* Catalog Section */
-            #catalog .grid.md\:grid-cols-3 {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-            }
-            #catalog .flex.flex-wrap {
-                gap: 0.5rem;
-            }
-            .filter-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
-            }
-            .product-card img {
-                height: 200px;
-            }
-            .product-price {
-                font-size: 1.2rem;
-            }
-
-            /* Portfolio Section */
-            #portfolio .grid {
-                grid-template-columns: 1fr !important;
-            }
-            .portfolio-item {
-                height: 220px;
-            }
-
-            /* Contact Section */
-            #contact .grid.md\:grid-cols-2 {
-                grid-template-columns: 1fr !important;
-                gap: 2rem;
-            }
-            .contact-form input,
-            .contact-form textarea {
-                padding: 0.8rem;
-                font-size: 0.9rem;
-                margin-bottom: 1rem;
-            }
-            #contact iframe {
-                height: 220px !important;
-            }
-            #contact h3.text-2xl {
-                font-size: 1.3rem;
-            }
-            #contact .space-y-4 > div {
-                align-items: flex-start;
-            }
-
-            /* Footer */
-            footer .grid.md\:grid-cols-3 {
-                grid-template-columns: 1fr !important;
-                gap: 1.5rem;
-                text-align: center;
-            }
-            .social-links {
-                display: flex;
-                justify-content: center;
-            }
-
-            /* Modal */
-            .modal-content {
-                margin: 3% auto;
-                padding: 1.25rem;
-                max-width: 95%;
-                border-radius: 12px;
-            }
-            .modal-content h2 {
-                font-size: 1.4rem;
-            }
-            .modal-content .grid-cols-2 {
-                grid-template-columns: 1fr !important;
-                gap: 0.5rem;
-            }
-            #pdfModal .modal-content {
-                height: 95%;
-                max-width: 98%;
-            }
-            #pdfModal iframe {
-                height: 75vh !important;
-            }
-
-            /* WhatsApp button */
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 20px;
-                right: 16px;
-            }
-
-            /* Py adjustments */
-            .py-20 {
-                padding-top: 3.5rem !important;
-                padding-bottom: 3.5rem !important;
-            }
-            .px-4 {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-            .gap-12 {
-                gap: 1.5rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 1.5rem;
-            }
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-            .section-title {
-                font-size: 1.4rem;
-            }
-            #about .grid-cols-3 .text-4xl {
-                font-size: 1.5rem;
-            }
-            #about .grid-cols-3 .text-sm {
-                font-size: 0.7rem;
-            }
-            .navbar-logo img {
-                height: 32px;
+            
+            .mobile-nav a {
+                display: block;
+                padding: 1rem 2rem;
+                border-bottom: 1px solid #f0f0f0;
             }
         }
 /* Elegant Navigation Links */
@@ -636,8 +445,8 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="navbar-logo">
-                <img src="Logo_light_brown.PNG" alt="Maulana Furniture Indonesia" style="height: 48px; width: auto; object-fit: contain;">
+            <div class="text-2xl font-bold" style="color: var(--primary-brown);">
+                <i class="fas fa-couch mr-2"></i>Maulana Furniture
             </div>
             <div class="desktop-menu flex space-x-8">
                 <a href="#home" class="nav-link">Home</a>
@@ -674,7 +483,7 @@
     <section id="about" class="py-20 px-4">
         <div class="container mx-auto max-w-6xl">
             <h2 class="section-title" data-aos="fade-up">About Maulana Furniture</h2>
-            <div class="about-grid grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
                     <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800" alt="Workshop" class="rounded-2xl shadow-2xl">
                 </div>
@@ -843,7 +652,7 @@
                                 <i class="fas fa-envelope text-2xl mr-4" style="color: var(--primary-brown);"></i>
                                 <div>
                                     <h4 class="font-semibold mb-1">Email</h4>
-                                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="81e8efe7eec1ece0f4ede0efe0e7f4f3efe8f5f4f3e4afe2eeec">[email&#160;protected]</a></p>
+                                    <p>info@maulanafurniture.com</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -1055,7 +864,7 @@
 
 
     <!-- AOS Animation Script -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
     <script>
         // Initialize AOS
@@ -1236,6 +1045,15 @@ window.addEventListener("scroll", () => {
       const sectionTop = current.offsetTop - 80; // offset for navbar
       const sectionId = current.getAttribute("id");
       const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+      
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navLink?.classList.add("active");
+      } else {
+        navLink?.classList.remove("active");
+      }
     });
-
-});
+  });
+  
+    </script>
+</body>
+</html>
