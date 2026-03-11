@@ -420,6 +420,57 @@
         background: linear-gradient(to left, rgba(255,255,255,0.95), rgba(255,255,255,0));
       }
     }
+
+    .pdf-card{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      min-height: 280px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    
+    .pdf-card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.14);
+    }
+    
+    .pdf-icon-wrap{
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff5f5;
+      margin-bottom: 1.25rem;
+    }
+    
+    .pdf-icon{
+      font-size: 4rem;
+      color: #dc2626;
+    }
+    
+    .pdf-card h3{
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark-brown);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    
+    .pdf-card p{
+      color: #6b645d;
+      text-align: center;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 
@@ -603,17 +654,18 @@
   <section id="portfolio" class="py-20 px-4" style="background-color: var(--light-cream);">
     <div class="container mx-auto max-w-6xl text-center">
       <h2 class="section-title" data-aos="fade-up">Our Portfolio</h2>
-
+  
       <div class="grid md:grid-cols-3 gap-8 justify-center mt-10">
-        <div class="portfolio-item" onclick="openModal('pdfModal')" data-aos="zoom-in" style="cursor:pointer;">
-          <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="Company Profile PDF" class="mx-auto" style="width:150px;">
-          <div class="portfolio-overlay">
-            <h3 class="text-xl font-bold">Company Profile</h3>
+        <a href="COMPANY PROFILE MAULANA FURNITURE INDONESIA.pdf" target="_blank" class="pdf-card" data-aos="zoom-in">
+          <div class="pdf-icon-wrap">
+            <i class="fas fa-file-pdf pdf-icon"></i>
           </div>
-        </div>
+          <h3>Company Profile</h3>
+          <p>Open our full company profile</p>
+        </a>
       </div>
-
-      <p class="mt-8 text-lg text-gray-600">Click the icon above to view our full company profile.</p>
+  
+      <p class="mt-8 text-lg text-gray-600">Click the PDF card above to view our full company profile.</p>
     </div>
   </section>
 
@@ -716,14 +768,7 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <div id="pdfModal" class="modal">
-    <div class="modal-content" style="max-width: 90%; height: 90%;">
-      <span class="close" onclick="closeModal('pdfModal')">&times;</span>
-      <h2 class="text-2xl font-bold mb-4">Company Profile</h2>
-      <iframe src="COMPANY PROFILE MAULANA FURNITURE INDONESIA.pdf"
-        style="width:100%; height:80vh; border:none; border-radius:10px;"></iframe>
-    </div>
-  </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
