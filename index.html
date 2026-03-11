@@ -4,19 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Maulana Furniture - Bringing Your Dream Home to Life with Classic & Modern Touch. Quality furniture crafted with excellence.">
-  <meta name="keywords" content="furniture, custom furniture, modern furniture, classic furniture, interior design">
+  <meta name="keywords" content="furniture, custom furniture, modern furniture, classic furniture, interior design, rumah kayu, villa kayu">
   <title>Maulana Furniture - Quality Furniture for Your Dream Home</title>
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS Animation Library -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
   <style>
@@ -37,12 +30,9 @@
       padding-top: 0 !important;
     }
 
-    /* supaya klik anchor tidak ketutup navbar */
     section[id]{ scroll-margin-top: 96px; }
-
     h1, h2, h3, h4{ font-family:'Lora', serif; }
 
-    /* NAVBAR */
     .navbar{
       background-color: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
@@ -54,20 +44,21 @@
       transition: all 0.3s ease;
       border-bottom: 1px solid rgba(139,111,71,0.1);
     }
+
     .navbar.scrolled{
       box-shadow: 0 4px 25px rgba(0,0,0,0.15);
       background-color: rgba(250,248,245,0.97);
     }
 
-    /* Nav link */
     .nav-link{
       color: var(--dark-brown);
       font-weight: 500;
       position: relative;
       padding: 0.5rem 0;
       transition: all 0.3s ease;
-      white-space: nowrap; /* penting untuk horizontal scroll */
+      white-space: nowrap;
     }
+
     .nav-link::after{
       content:'';
       position:absolute;
@@ -80,12 +71,12 @@
       transition: width 0.3s ease;
       border-radius: 2px;
     }
+
     .nav-link:hover{ color: var(--primary-brown); }
     .nav-link:hover::after{ width:60%; }
     .nav-link.active{ color: var(--primary-brown); font-weight: 600; }
     .nav-link.active::after{ width:60%; }
 
-    /* HERO */
     .hero-section{
       position: relative;
       overflow: hidden;
@@ -96,11 +87,13 @@
       color:white;
       background:#000;
       min-height: 100vh;
-      padding-top: 96px; /* offset navbar: jadi tidak tertutup */
+      padding-top: 96px;
     }
+
     @supports (height: 100svh){
       .hero-section{ min-height: 100svh; }
     }
+
     @supports (height: 100dvh){
       .hero-section{ min-height: 100dvh; }
     }
@@ -114,12 +107,14 @@
       z-index:0;
       display:block;
     }
+
     .hero-overlay{
       position:absolute;
       inset:0;
       background: rgba(0,0,0,0.35);
       z-index:1;
     }
+
     .hero-content{
       position:relative;
       z-index:2;
@@ -138,6 +133,7 @@
       border:none;
       cursor:pointer;
     }
+
     .btn-primary:hover{
       background-color: var(--secondary-brown);
       transform: translateY(-3px);
@@ -151,6 +147,7 @@
       color: var(--dark-brown);
       position:relative;
     }
+
     .section-title::after{
       content:'';
       width:80px;
@@ -161,42 +158,101 @@
       border-radius:2px;
     }
 
+    .catalog-subtitle{
+      max-width: 700px;
+      margin: -1rem auto 3rem;
+      text-align: center;
+      color: #6b645d;
+      line-height: 1.8;
+    }
+
+    .filter-btn{
+      background: white;
+      color: var(--dark-brown);
+      border: 1px solid rgba(139,111,71,0.18);
+      padding: 0.9rem 1.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active{
+      background: var(--primary-brown);
+      color: white;
+      box-shadow: 0 10px 25px rgba(139,111,71,0.18);
+    }
+
     .product-card{
       background:white;
-      border-radius:15px;
+      border-radius:20px;
       overflow:hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.35s ease;
       cursor:pointer;
+      position: relative;
     }
+
     .product-card:hover{
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.14);
     }
+
+    .product-image-wrap{
+      position: relative;
+      overflow: hidden;
+    }
+
     .product-card img{
       width:100%;
-      height:250px;
+      height:280px;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
+      display: block;
     }
-    .product-card:hover img{ transform: scale(1.1); }
+
+    .product-card:hover img{ transform: scale(1.08); }
+
+    .product-badge{
+      position:absolute;
+      top:16px;
+      left:16px;
+      background: rgba(255,255,255,0.92);
+      color: var(--dark-brown);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 2;
+    }
+
     .product-info{ padding:1.5rem; }
 
     .product-category{
       color: var(--primary-brown);
-      font-size:0.875rem;
-      font-weight:600;
+      font-size:0.8rem;
+      font-weight:700;
       text-transform:uppercase;
-      letter-spacing:1px;
+      letter-spacing:1.2px;
     }
+
     .product-name{
       font-size:1.25rem;
       font-weight:600;
-      margin:0.5rem 0;
+      margin:0.6rem 0 0.7rem;
       color: var(--dark-brown);
     }
+
+    .product-desc{
+      font-size:0.95rem;
+      color:#6d665f;
+      line-height:1.7;
+      margin-bottom: 1rem;
+    }
+
     .product-price{
-      font-size:1.5rem;
+      font-size:1rem;
       font-weight:700;
       color: var(--primary-brown);
     }
@@ -208,12 +264,14 @@
       cursor:pointer;
       height:300px;
     }
+
     .portfolio-item img{
       width:100%;
       height:100%;
       object-fit:cover;
       transition: transform 0.5s ease;
     }
+
     .portfolio-item:hover img{ transform: scale(1.2); }
 
     .portfolio-overlay{
@@ -228,6 +286,7 @@
       opacity:0;
       transition: opacity 0.3s ease;
     }
+
     .portfolio-item:hover .portfolio-overlay{ opacity:1; }
 
     .modal{
@@ -239,6 +298,7 @@
       background-color: rgba(0,0,0,0.9);
       overflow:auto;
     }
+
     .modal-content{
       background-color:white;
       margin: 5% auto;
@@ -247,6 +307,7 @@
       max-width:800px;
       position:relative;
     }
+
     .close{
       color: var(--dark-brown);
       float:right;
@@ -255,6 +316,7 @@
       cursor:pointer;
       transition: color 0.3s;
     }
+
     .close:hover{ color: var(--primary-brown); }
 
     .contact-form input,
@@ -267,6 +329,7 @@
       font-family:'Poppins', sans-serif;
       transition: border-color 0.3s ease;
     }
+
     .contact-form input:focus,
     .contact-form textarea:focus{
       outline:none;
@@ -292,6 +355,7 @@
       transition: all 0.3s ease;
       cursor:pointer;
     }
+
     .whatsapp-float:hover{
       transform: scale(1.1);
       box-shadow: 0 8px 30px rgba(0,0,0,0.4);
@@ -302,25 +366,25 @@
       color:white;
       padding: 3rem 0 1.5rem;
     }
+
     .social-links a{
       color:white;
       font-size:1.5rem;
       margin:0 1rem;
       transition: color 0.3s ease;
     }
+
     .social-links a:hover{ color: var(--primary-brown); }
+
+    .mobile-scroll-nav{
+      display:none;
+    }
 
     @media (max-width:768px){
       .hero-content h1{ font-size:2rem; }
       .hero-content p{ font-size:1rem; }
       .section-title{ font-size:1.75rem; }
-    }
 
-    /* ✅ Mobile horizontal scroll menu */
-    .mobile-scroll-nav{
-      display:none;
-    }
-    @media (max-width:768px){
       .mobile-scroll-nav{
         display:flex;
         gap: 22px;
@@ -329,12 +393,13 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
       }
+
       .mobile-scroll-nav::-webkit-scrollbar{ display:none; }
 
-      /* kasih "fade" tipis kanan kiri biar keliatan bisa geser */
       .mobile-fade{
         position: relative;
       }
+
       .mobile-fade::before,
       .mobile-fade::after{
         content:"";
@@ -344,10 +409,12 @@
         pointer-events:none;
         z-index: 2;
       }
+
       .mobile-fade::before{
         left:0;
         background: linear-gradient(to right, rgba(255,255,255,0.95), rgba(255,255,255,0));
       }
+
       .mobile-fade::after{
         right:0;
         background: linear-gradient(to left, rgba(255,255,255,0.95), rgba(255,255,255,0));
@@ -358,14 +425,12 @@
 
 <body>
 
-  <!-- NAVBAR (desktop tetap normal, mobile jadi scroll ke samping) -->
   <nav class="navbar">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
       <a href="#home" class="flex items-center">
         <img src="logo-light-brown.png" alt="Maulana Furniture Indonesia" class="h-9 w-auto">
       </a>
 
-      <!-- DESKTOP MENU -->
       <div class="hidden md:flex items-center gap-8">
         <a href="#home" class="nav-link">Home</a>
         <a href="#about" class="nav-link">About Us</a>
@@ -375,7 +440,6 @@
       </div>
     </div>
 
-    <!-- ✅ MOBILE SCROLL MENU (tanpa dropdown putih besar) -->
     <div class="mobile-fade">
       <div class="mobile-scroll-nav">
         <a href="#home" class="nav-link">Home</a>
@@ -387,7 +451,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section id="home" class="hero-section">
     <video class="hero-video" autoplay muted loop playsinline preload="metadata">
       <source src="hero_h264.mp4" type="video/mp4">
@@ -402,7 +465,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="py-20 px-4">
     <div class="container mx-auto max-w-6xl">
       <h2 class="section-title" data-aos="fade-up">About Maulana Furniture</h2>
@@ -437,87 +499,107 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- CATALOG -->
   <section id="catalog" class="py-20 px-4" style="background-color: var(--cream);">
     <div class="container mx-auto max-w-7xl">
       <h2 class="section-title" data-aos="fade-up">Our Product Catalog</h2>
+      <p class="catalog-subtitle" data-aos="fade-up">
+        Explore our handcrafted wooden houses and premium furniture collections, designed with natural elegance and built to last.
+      </p>
 
       <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
-        <button class="filter-btn btn-primary active" data-category="all">All Products</button>
-        <button class="filter-btn btn-primary" data-category="furniture">Furniture</button>
-        <button class="filter-btn btn-primary" data-category="rumah-kayu">Rumah Kayu</button>
+        <button class="filter-btn active" data-category="all">All Products</button>
+        <button class="filter-btn" data-category="furniture">Furniture</button>
+        <button class="filter-btn" data-category="rumah-kayu">Rumah Kayu</button>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8" id="productsGrid">
+
         <div class="product-card" data-category="furniture" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600" alt="Modern Living Room Set">
+          <div class="product-image-wrap">
+            <span class="product-badge">Furniture</span>
+            <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600" alt="Modern Living Room Set">
+          </div>
           <div class="product-info">
             <div class="product-category">Furniture</div>
             <h3 class="product-name">Modern Living Room Set</h3>
-            <p class="text-sm mb-3">Sofa, armchair, and coffee table in minimalist design.</p>
-            <div class="product-price">$3,499</div>
+            <p class="product-desc">Sofa, armchair, and coffee table in a minimalist concept for modern living spaces.</p>
+            <div class="product-price">Custom Order</div>
           </div>
         </div>
 
         <div class="product-card" data-category="furniture" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://images.unsplash.com/photo-1617104678098-de229db51175?w=600" alt="Classic Teak Dining Set">
+          <div class="product-image-wrap">
+            <span class="product-badge">Furniture</span>
+            <img src="https://images.unsplash.com/photo-1617104678098-de229db51175?w=600" alt="Classic Teak Dining Set">
+          </div>
           <div class="product-info">
             <div class="product-category">Furniture</div>
             <h3 class="product-name">Classic Teak Dining Set</h3>
-            <p class="text-sm mb-3">6-seater dining table made from premium Javanese teak.</p>
-            <div class="product-price">$2,199</div>
+            <p class="product-desc">Premium teak dining set with timeless design, suitable for home and hospitality use.</p>
+            <div class="product-price">Custom Order</div>
           </div>
         </div>
 
         <div class="product-card" data-category="furniture" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://images.unsplash.com/photo-1633533439409-724e532a3ac3?w=600" alt="Custom Wardrobe System">
+          <div class="product-image-wrap">
+            <span class="product-badge">Furniture</span>
+            <img src="https://images.unsplash.com/photo-1633533439409-724e532a3ac3?w=600" alt="Custom Wardrobe System">
+          </div>
           <div class="product-info">
             <div class="product-category">Furniture</div>
             <h3 class="product-name">Custom Wardrobe System</h3>
-            <p class="text-sm mb-3">Bespoke storage solutions tailored to your bedroom space.</p>
-            <div class="product-price">Price on Request</div>
+            <p class="product-desc">Tailor-made wooden storage solutions with a clean, elegant finish for your interior.</p>
+            <div class="product-price">Custom Order</div>
           </div>
         </div>
 
         <div class="product-card" data-category="rumah-kayu" data-aos="fade-up">
-          <img src="https://images.unsplash.com/photo-1583754029193-6d50f8087913?w=600" alt="Villa Kayu Modern">
+          <div class="product-image-wrap">
+            <span class="product-badge">Rumah Kayu</span>
+            <img src="assets_MAULANA/rumah-kayu-01.jpeg" alt="Modern Wooden House">
+          </div>
           <div class="product-info">
             <div class="product-category">Rumah Kayu</div>
-            <h3 class="product-name">Villa Kayu Modern</h3>
-            <p class="text-sm mb-3">A modern 2-bedroom wooden villa, perfect for a tranquil retreat.</p>
-            <div class="product-price">Contact for Price</div>
+            <h3 class="product-name">Modern Wooden House</h3>
+            <p class="product-desc">Custom built wooden house with a warm natural finish and elegant modern facade.</p>
+            <div class="product-price">Custom Build</div>
           </div>
         </div>
 
         <div class="product-card" data-category="rumah-kayu" data-aos="fade-up" data-aos-delay="100">
-          <img src="https://images.unsplash.com/photo-1623910292219-762e584a2f4c?w=600" alt="Gazebo Jati Klasik">
+          <div class="product-image-wrap">
+            <span class="product-badge">Rumah Kayu</span>
+            <img src="assets_MAULANA/rumah-kayu-02.jpeg" alt="Luxury Wooden Villa">
+          </div>
           <div class="product-info">
             <div class="product-category">Rumah Kayu</div>
-            <h3 class="product-name">Gazebo Jati Klasik</h3>
-            <p class="text-sm mb-3">Elegant teak wood gazebo for your garden or poolside.</p>
-            <div class="product-price">Starting from $5,000</div>
+            <h3 class="product-name">Luxury Wooden Villa</h3>
+            <p class="product-desc">Elegant tropical wooden villa, ideal for resort, retreat, or private residence projects.</p>
+            <div class="product-price">Custom Build</div>
           </div>
         </div>
 
         <div class="product-card" data-category="rumah-kayu" data-aos="fade-up" data-aos-delay="200">
-          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=600" alt="Rumah Panggung Minimalis">
+          <div class="product-image-wrap">
+            <span class="product-badge">Rumah Kayu</span>
+            <img src="assets_MAULANA/rumah-kayu-03.jpeg" alt="Two Floor Wooden House">
+          </div>
           <div class="product-info">
             <div class="product-category">Rumah Kayu</div>
-            <h3 class="product-name">Rumah Panggung Minimalis</h3>
-            <p class="text-sm mb-3">A minimalist stilt house, combining traditional design with modern living.</p>
-            <div class="product-price">Contact for Price</div>
+            <h3 class="product-name">Two Floor Wooden House</h3>
+            <p class="product-desc">Two-storey wooden house with strong visual character, ideal for modern tropical living.</p>
+            <div class="product-price">Custom Build</div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
   <section id="portfolio" class="py-20 px-4" style="background-color: var(--light-cream);">
     <div class="container mx-auto max-w-6xl text-center">
       <h2 class="section-title" data-aos="fade-up">Our Portfolio</h2>
@@ -535,7 +617,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="py-20 px-4" style="background-color: var(--cream);">
     <div class="container mx-auto max-w-6xl">
       <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
@@ -590,14 +671,13 @@
 
           <div class="rounded-2xl overflow-hidden shadow-xl">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.369!2d112.738!3d-7.257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTUnMjUuMiJTIDExMsKwNDQnMTYuOCJF!5e0!3m2!1sen!2sid!4v1234567890"
-                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+              width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -631,23 +711,20 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Float -->
   <a href="https://wa.me/6287815879282?text=Hello%20Maulana%20Furniture,%20I%20would%20like%20to%20inquire%20about%20your%20products"
-     target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- PDF Modal -->
   <div id="pdfModal" class="modal">
     <div class="modal-content" style="max-width: 90%; height: 90%;">
       <span class="close" onclick="closeModal('pdfModal')">&times;</span>
       <h2 class="text-2xl font-bold mb-4">Company Profile</h2>
       <iframe src="COMPANY PROFILE MAULANA FURNITURE INDONESIA.pdf"
-              style="width:100%; height:80vh; border:none; border-radius:10px;"></iframe>
+        style="width:100%; height:80vh; border:none; border-radius:10px;"></iframe>
     </div>
   </div>
 
-  <!-- AOS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true, offset: 100 });
@@ -658,7 +735,6 @@
       else navbar.classList.remove('scrolled');
     });
 
-    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e){
         e.preventDefault();
@@ -667,15 +743,16 @@
       });
     });
 
-    // Modal functions
     function openModal(modalId){
       document.getElementById(modalId).style.display = 'block';
       document.body.style.overflow = 'hidden';
     }
+
     function closeModal(modalId){
       document.getElementById(modalId).style.display = 'none';
       document.body.style.overflow = 'auto';
     }
+
     window.onclick = function(event){
       if(event.target.classList.contains('modal')){
         event.target.style.display = 'none';
@@ -683,7 +760,6 @@
       }
     }
 
-    // Product filter
     const filterBtns = document.querySelectorAll('.filter-btn');
     const products = document.querySelectorAll('.product-card');
     products.forEach(p => p.style.transition = 'opacity 0.3s ease, transform 0.3s ease');
@@ -710,7 +786,6 @@
       });
     });
 
-    // Contact form submit (Google Script)
     document.getElementById("contactForm").addEventListener("submit", function(e){
       e.preventDefault();
 
@@ -743,7 +818,6 @@
       });
     });
 
-    // active link highlight
     window.addEventListener("scroll", () => {
       const sections = document.querySelectorAll("section[id]");
       const scrollY = window.pageYOffset;
